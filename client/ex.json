@@ -1,0 +1,61 @@
+{
+  "characteristics": [
+    {
+      "size": 8.5,
+      "consistance": 100,
+      "stability": 730
+    },
+    {
+      "size": 16.09,
+      "consistance": 99.8,
+      "stability": 730
+    },
+    {
+      "size": 23,
+      "consistance": 100,
+      "stability": 730
+    },
+    {
+      "size": 832.4,
+      "consistance": 100,
+      "stability": 6
+    },
+    {
+      "size": 2.030,
+      "consistance": 100,
+      "stability": 60
+    }
+  ]
+},
+
+
+{
+    "status":200,
+    "message":"OK",
+    "conditions":[
+        {
+            "temperature":80,
+            "time":60,
+            "c_acid":0.21,
+            "c_ti":0.3,
+            "acid":"hno3",
+            "treatment":0
+        },
+        {
+            "temperature":45,
+            "time":130,
+            "c_acid":0.1,
+            "c_ti":0.28,
+            "acid":"hno3",
+            "treatment":0
+        },
+        {
+            "temperature":80,
+            "time":9,
+            "c_acid":0.1,
+            "c_ti":0.6,
+            "acid":"h2so4",
+            "treatment":0
+        }
+    ]
+}

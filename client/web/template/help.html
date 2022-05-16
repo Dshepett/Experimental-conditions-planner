@@ -1,0 +1,80 @@
+<html>
+  <head>
+    <title>Программа планирования условий эксперимента</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <main>
+      <div class="wrapper">
+        <header class="p-3 mb-3 border-bottom">
+          <div class="container">
+            <div
+              class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
+            >
+              <ul
+                class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"
+              >
+                <li>
+                  <a href="/" class="nav-link px-2 link-secondary">Главная</a>
+                </li>
+                <li>
+                  <a href="/help" class="nav-link px-5 link-secondary">FAQ</a>
+                </li>
+              </ul>
+              <h5 class="align-items-end px-2">
+                Программа планирования условий эксперимента
+              </h5>
+            </div>
+          </div>
+        </header>
+        <div class="container">
+          <div class="card shadow mb-3">
+            <div class="card-header bg-primary text-white">FAQ</div>
+            <div class="card-body">
+              <div class="m-2 mb-4">
+                <h2>Какого формата данные необходимо вводить в поля?</h2>
+                <li>
+                  Формат играницы параметра для каждого поля указаны под каждым
+                  полем мелким тесктом
+                </li>
+              </div>
+              <div class="m-2">
+                <h2>Как должен выглядеть файл для отправки?</h2>
+                <li>Файл должен быть формата .csv</li>
+                <li>Максимальный размер файла - 5 MB</li>
+                <li>Разделителем должен быть символ ";"</li>
+                <li>Названий столбцов быть не должно</li>
+                <li>
+                  Каждый ряд должен состоять из трех чисел: размер, содержание и
+                  стабильность соостветсвенно
+                </li>
+                <li>формат данных такой же как при введении в поля</li>
+              </div>
+              <div class="m-2">
+                <h4>Пример содержания фалйа:</h4>
+                <div class="m-3">
+                  8.5;100;730<br />
+                  16.09;100;730<br />
+                  23;99.8;730<br />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer class="py-3 my-4">
+          <p class="text-center text-muted">© 2022 Шепетенко Дмитрий БПИ207</p>
+        </footer>
+      </div>
+    </main>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

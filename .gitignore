@@ -1,0 +1,5 @@
+__pycache__/
+*.py[cod]
+experiments/
+prediction_models/
+data.csv
