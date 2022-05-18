@@ -19,13 +19,15 @@
             </div>
         </header>                
         <div class="container">
-          <div class="card border-danger mb-3  d-none" style="max-width: 18rem;">
+          {{if .Error}}
+          <div class="card border-danger mb-5 mx-auto" style="max-width: 20rem;">
             <div class="card-header">Ошибка!</div>
             <div class="card-body text-danger">
-              <h5 class="card-title">Произошла ошибка при попытке запроса к API</h5>
-              <p class="card-text">Статус: 400<br>Сообщение: произошла ошибка при вычислении</p>
+              <h3 class="card-title">Произошла ошибка при попытке запроса к API</h3>
+              <p class="card-text">Повторите попытку позже</p>
             </div>
           </div>
+          {{else}}
     <table class="table table-striped">      
         <thead class="thead-light">
             <th>Т, °С</th>
@@ -37,7 +39,7 @@
             <th>Содержание, %</th>
             <th>Стабильность золей,<br> кол-во суток</th>
         </thead>
-      {{range .}}
+      {{range .Data}}
       <tr>
         <td>{{printf "%.2f" .Conditions.Temperature}}</td>
         <td>{{printf "%.2f" .Conditions.Time}}</td>
@@ -51,30 +53,33 @@
       {{end}}
     </table>
     <button onclick="downloadFile();" class="btn btn-primary">Экспорт в .csv</button>
-  </div>
+    {{end}}
+  </div>  
   <footer class="py-3 my-4">
       <p class="text-center text-muted">© 2022 Шепетенко Дмитрий БПИ207</p>
   </footer>
+  <p class="data" hidden>{{ .TXTdata}}</p>
 </div>
 </main>
 <script>
-  function downloadFile() {          
-      let url = "http://localhost:8080/download"
+  function downloadFile() {       
+    let data = document.getElementsByClassName("data")[0];     
+      let url = "http://localhost:{{ .Port}}/download"
       let options = {
-          method: 'GET',
+          method: 'POST',
           headers: new Headers({
               'Content-Type': 'application/json',
           }),
           mode: 'no-cors',
+          body: data.textContent,
           cache: 'default'
       };
       let strMimeType;
       let strFileName;
-  
-      //Perform a GET Request to server
+        
       fetch(url, options)
       .then(function (response) {          
-          let contentType = response.headers.get("Content-Type"); //Get File name from content type
+          let contentType = response.headers.get("Content-Type");
           strMimeType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
           strFileName = contentType.split(";")[1];
           return response.blob();
@@ -86,8 +91,6 @@
           document.body.appendChild(downloadLink);
           downloadLink.click();
           document.body.removeChild(downloadLink);
-      }).catch((e) => {
-          console.log("e", e);
       });
   }
 </script>

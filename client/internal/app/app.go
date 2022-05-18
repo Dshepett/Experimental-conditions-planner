@@ -24,10 +24,10 @@ func NewApp(config *config.Config) *App {
 }
 
 func (a *App) addRouters() {
-	a.router.HandleFunc("/", indexHandler)
+	a.router.HandleFunc("/", a.indexHandler)
 	a.router.HandleFunc("/predict", a.predictHandler).Methods("POST")
-	a.router.HandleFunc("/help", helpHandler)
-	a.router.HandleFunc("/download", downloadHandler)
+	a.router.HandleFunc("/help", a.helpHandler)
+	a.router.HandleFunc("/download", a.downloadHandler)
 }
 
 func (a *App) Run() {
